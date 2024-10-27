@@ -8,7 +8,8 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
   styleUrls: ['./header.component.css'],
   standalone: true,
   imports: [CommonModule,
-    SidebarComponent],
+    SidebarComponent,
+  ],
 })
 export class HeaderComponent {
 
