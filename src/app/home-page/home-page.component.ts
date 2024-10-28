@@ -6,25 +6,22 @@ import { NavComponent } from './nav/nav.component';
 import { BannerComponent } from './banner/banner.component';
 import { TrendingNewsComponent } from './trending-news/trending-news.component';
 import { NewsLetterComponent } from './news-letter/news-letter.component';
-import { LatestArticlesComponent } from "./latest-articles/latest-articles.component";
-import { FooterComponent } from './footer/footer.component';
+import { LatestArticlesComponent } from './latest-articles/latest-articles.component';
+
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [CommonModule,
-    HeaderComponent,
-    NavComponent,
+  imports: [
+    CommonModule,
+
     BannerComponent,
     TrendingNewsComponent,
     NewsLetterComponent,
-     LatestArticlesComponent,
-    FooterComponent,
+    LatestArticlesComponent,
     HeadingComponent,
   ],
   templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.css']
+  styleUrls: ['./home-page.component.css'],
 })
-export class HomePageComponent {
-
-}
+export class HomePageComponent {}

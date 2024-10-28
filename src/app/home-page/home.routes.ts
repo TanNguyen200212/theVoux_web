@@ -5,5 +5,9 @@ export const homePageRoutes: Routes = [
   {
     path: '',
     component: HomePageComponent,
+    
   },
 ];
+
+
+

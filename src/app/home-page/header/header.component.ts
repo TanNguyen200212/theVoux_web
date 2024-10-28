@@ -7,10 +7,6 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
   standalone: true,
-  imports: [CommonModule,
-    SidebarComponent,
-  ],
+  imports: [CommonModule, SidebarComponent],
 })
-export class HeaderComponent {
-
-}
+export class HeaderComponent {}
