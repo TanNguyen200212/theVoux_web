@@ -1,3 +1,5 @@
+
+import { CommonModule } from '@angular/common';
 import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import {
   BrowserAnimationsModule,
@@ -8,18 +10,19 @@ import {
   withComponentInputBinding,
   withRouterConfig,
 } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { beautyRoutes } from './beauty.routes';
+let modules = [
+ CommonModule,
+ RouterModule.forRoot(beautyRoutes),
 
-import { HttpClientModule } from '@angular/common/http';
 
-import { BrowserModule } from '@angular/platform-browser';
-import { appRoutes } from './app.routes';
+];
 
-let modules = [HttpClientModule, BrowserAnimationsModule, BrowserModule];
-
-export const appConfig: ApplicationConfig = {
+export const beautyConfig: ApplicationConfig = {
   providers: [
     provideRouter(
-      appRoutes,
+      beautyRoutes,
       withComponentInputBinding(),
       withRouterConfig({ paramsInheritanceStrategy: 'always' })
     ),

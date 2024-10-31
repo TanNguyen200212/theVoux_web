@@ -12,14 +12,14 @@ import {
 import { HttpClientModule } from '@angular/common/http';
 
 import { BrowserModule } from '@angular/platform-browser';
-import { appRoutes } from './app.routes';
+import { usersRoutes } from './users.routes';
 
 let modules = [HttpClientModule, BrowserAnimationsModule, BrowserModule];
 
-export const appConfig: ApplicationConfig = {
+export const usersConfig: ApplicationConfig = {
   providers: [
     provideRouter(
-      appRoutes,
+      usersRoutes,
       withComponentInputBinding(),
       withRouterConfig({ paramsInheritanceStrategy: 'always' })
     ),

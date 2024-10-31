@@ -1,3 +1,4 @@
+import { adminRoutes } from './admin.routes';
 import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import {
   BrowserAnimationsModule,
@@ -12,14 +13,20 @@ import {
 import { HttpClientModule } from '@angular/common/http';
 
 import { BrowserModule } from '@angular/platform-browser';
-import { appRoutes } from './app.routes';
+import { RouterModule } from '@angular/router';
 
-let modules = [HttpClientModule, BrowserAnimationsModule, BrowserModule];
+let modules = [
+  HttpClientModule,
+  BrowserAnimationsModule,
+  BrowserModule,
+  RouterModule.forRoot(adminRoutes),
 
-export const appConfig: ApplicationConfig = {
+];
+
+export const adminConfig: ApplicationConfig = {
   providers: [
     provideRouter(
-      appRoutes,
+      adminRoutes,
       withComponentInputBinding(),
       withRouterConfig({ paramsInheritanceStrategy: 'always' })
     ),
