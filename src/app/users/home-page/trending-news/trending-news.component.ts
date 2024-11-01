@@ -1,27 +1,34 @@
+
+
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { PostsService } from 'src/app/admin/business/posts.service';
+import { Post } from 'src/app/admin/business/post.model';
 
 @Component({
   selector: 'app-trending-news',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,
+    HttpClientModule,
+
+  ],
   templateUrl: './trending-news.component.html',
   styleUrls: ['./trending-news.component.css'],
 })
 export class TrendingNewsComponent {
-  // items = [
-  //   { title: 'Slide 1', image: 'https://via.placeholder.com/400x300?text=Slide+1' },
-  //   { title: 'Slide 2', image: 'https://via.placeholder.com/400x300?text=Slide+2' },
-  //   { title: 'Slide 3', image: 'https://via.placeholder.com/400x300?text=Slide+3' },
-  // ];
+  posts: Post[] = [];
 
-  // currentIndex = 0;
+  constructor(private postsService: PostsService) {}
 
-  // nextSlide() {
-  //   this.currentIndex = (this.currentIndex + 1) % this.items.length;
-  // }
+  ngOnInit(): void {
+    this.fetchPosts();
+  }
 
-  // prevSlide() {
-  //   this.currentIndex = (this.currentIndex - 1 + this.items.length) % this.items.length;
-  // }
+  fetchPosts() {
+    this.postsService.fetchPosts().subscribe((posts: Post[]) => {
+      this.posts = posts;
+      console.log(this.posts); // Xem dữ liệu trong console
+    });
+  }
 }
