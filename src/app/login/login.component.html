@@ -1,109 +1,53 @@
-<!-- Pills navs -->
-<div class="container">
-  <div class="form-login">
-    <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
-      <li class="nav-item" role="presentation">
-        <a
-          class="nav-link active"
-          id="tab-login"
-          data-mdb-pill-init
-          href="#pills-login"
-          role="tab"
-          aria-controls="pills-login"
-          aria-selected="true"
-          >Login</a
-        >
-      </li>
-      <li class="nav-item" role="presentation">
-        <a
-          class="nav-link"
-          id="tab-register"
-          data-mdb-pill-init
-          href="#pills-register"
-          role="tab"
-          aria-controls="pills-register"
-          aria-selected="false"
-          >Register</a
-        >
-      </li>
-    </ul>
-    <!-- Pills navs -->
-
-    <!-- Pills content -->
-    <div class="tab-content">
-      <div
-        class="tab-pane fade show active"
-        id="pills-login"
-        role="tabpanel"
-        aria-labelledby="tab-login"
-      >
-        <form >
-          <div class="text-center mb-3">
-            <!-- <p>Sign in</p> -->
-
-            <!-- Email input -->
-            <div data-mdb-input-init class="form-outline mb-4">
-              <label class="form-label" for="loginName">Email </label>
-              <input
-                type="email"
-                class="form-control"
-                placeholder="email@gmail.com"
-                [(ngModel)]="email"
-                name="email"
-                required
-              />
-            </div>
-
-            <!-- Password input -->
-            <div data-mdb-input-init class="form-outline mb-4">
-              <label class="form-label" for="loginPassword">Password</label>
-              <input
-                type="password"
-                class="form-control"
-                [(ngModel)]="password"
-                name="password"
-                required
-              />
-            </div>
-
-            <!-- 2 column grid layout -->
-            <div class="row mb-4">
-              <div class="col-md-6 d-flex justify-content-center">
-                <!-- Checkbox -->
-                <div class="form-check mb-3 mb-md-0">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    value=""
-                    checked
-                  />
-                  <label class="form-check-label" for="loginCheck">
-                    Remember me
-                  </label>
-                </div>
-              </div>
-
-              <div class="col-md-6 d-flex justify-content-center">
-                <a href="#!">Forgot password?</a>
-              </div>
-            </div>
-
-            <!-- Submit button -->
-            <button
-              type="submit"
-              mat-raised-button
-              color="primary"
-              data-mdb-button-init
-              data-mdb-ripple-init
-              class="btn btn-primary btn-block mb-4"
-              (click)="onSubmit()"
-            >
-              Sign in
-            </button>
-          </div>
-        </form>
+<div class="flex justify-center items-center h-screen bg-gradient-to-r from-pink-200 to-purple-200">
+  <div class="w-full max-w-xs p-8 bg-white rounded-lg shadow-lg">
+    <h2 class="text-2xl font-bold text-center mb-4 text-gray-700">Login</h2>
+    <form>
+      <!-- Email input -->
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-700" for="loginName">Email</label>
+        <input
+          type="email"
+          class="w-full px-3 py-2 mt-1 text-gray-700 border border-gray-300 rounded focus:outline-none focus:border-purple-500"
+          placeholder="email@gmail.com"
+          [(ngModel)]="email"
+          name="email"
+          required
+        />
       </div>
-    </div>
+
+      <!-- Password input -->
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-700" for="loginPassword">Password</label>
+        <input
+          type="password"
+          class="w-full px-3 py-2 mt-1 text-gray-700 border border-gray-300 rounded focus:outline-none focus:border-purple-500"
+          [(ngModel)]="password"
+          name="password"
+          required
+        />
+      </div>
+
+      <!-- Checkbox and Forgot password link -->
+      <div class="flex items-center justify-between mb-4">
+        <label class="flex items-center">
+          <input
+            class="form-checkbox text-purple-500 focus:ring-purple-400"
+            type="checkbox"
+            checked
+          />
+          <span class="ml-2 text-sm text-gray-600">Remember me</span>
+        </label>
+        <a href="#!" class="text-sm text-purple-500 hover:underline">Forgot password?</a>
+      </div>
+
+      <!-- Submit button -->
+      <button
+        type="submit"
+        class="w-full py-2 text-white bg-purple-500 rounded hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50"
+        (click)="onSubmit()"
+      >
+        Sign in
+      </button>
+    </form>
   </div>
 </div>
-

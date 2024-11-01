@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
       this.password.trim() === '123456'
     ) {
       this.authservice.login();
-      this.router.navigate(['/admin/other']);
+      this.router.navigate(['/admin']);
     } else {
       this.errorMessage = 'Tên đăng nhập hoặc mật khẩu sai';
     }
