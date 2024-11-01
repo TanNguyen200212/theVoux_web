@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import TablesComponent from './tables.component';
 
-import { TablesComponent } from './tables.component';
+
 
 describe('TablesComponent', () => {
   let component: TablesComponent;
@@ -11,7 +12,7 @@ describe('TablesComponent', () => {
       imports: [TablesComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(TablesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
