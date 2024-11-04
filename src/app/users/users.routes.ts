@@ -36,6 +36,10 @@ export const usersRoutes: Routes = [
       {
         path: 'beauty',
         loadChildren: () => import('./beauty/beauty.routes').then(m => m.beautyRoutes)
+      },
+      {
+        path: 'shopping',
+        loadChildren: () => import('./shopping/shopping.routes').then(m => m.shoppingRoutes)
       }
     ]
   },

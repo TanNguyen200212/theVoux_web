@@ -1,41 +1,41 @@
 <!-- <div class="bg-clip-border mx-4 rounded-xl overflow-hidden bg-gradient-to-tr from-blue-600 to-blue-400 text-white shadow-blue-500/40 shadow-lg absolute -mt-4 grid h-16 w-16 place-items-center"> -->
-<form class="postForm" [formGroup]="postForm">
-  <div class="form-group">
-    <div class="flex flex-col space-y-4 my-5">
-      <mat-form-field id="example-full-width" class="form-group">
-        <mat-label for="title">Title</mat-label>
+  <form class="postForm" [formGroup]="postForm">
+    <div class="form-group">
+      <div class="flex flex-col space-y-4 my-5">
+        <mat-form-field id="example-full-width" class="form-group">
+          <mat-label for="title">Title</mat-label>
 
-        <input
-          matInput
-          type="text"
-          class="form-control"
-          id="title"
-          formControlName="title"
-        />
-      </mat-form-field>
-      <mat-form-field id="example-full-width" class="form-group">
-        <mat-label for="content">Content</mat-label>
-        <textarea
-          matInput
-          class="form-control"
-          id="content"
-          formControlName="content"
-        ></textarea>
-      </mat-form-field>
+          <input
+            matInput
+            type="text"
+            class="form-control"
+            id="title"
+            formControlName="title"
+          />
+        </mat-form-field>
+        <mat-form-field id="example-full-width" class="form-group">
+          <mat-label for="content">Content</mat-label>
+          <textarea
+            matInput
+            class="form-control"
+            id="content"
+            formControlName="content"
+          ></textarea>
+        </mat-form-field>
+      </div>
     </div>
-  </div>
-  <div class="flex gap-3 justify-center">
-    <button mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
-    <button
-      mat-raised-button
-      color="accent"
-      class="btn btn-primary"
-      type="submit"
-      [disabled]="!postForm.valid"
-      (click)="onSubmit()"
-    >
-      Send Post
-    </button>
-  </div>
-</form>
-<!-- </div> -->
+    <div class="flex gap-3 justify-center">
+      <button mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+      <button
+        mat-raised-button
+        color="accent"
+        class="btn btn-primary"
+        type="submit"
+        [disabled]="!postForm.valid"
+        (click)="onSubmit()"
+      >
+        Send Post
+      </button>
+    </div>
+  </form>
+  <!-- </div> -->

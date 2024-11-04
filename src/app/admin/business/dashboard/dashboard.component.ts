@@ -71,6 +71,7 @@ export default class DashboardComponent {
           this.dataSource = [...this.loadedPosts];
 
         } else if (result.action == 'edit') {
+          
           const index = this.loadedPosts.findIndex(
             (p) => p.id === result.data.id
           );

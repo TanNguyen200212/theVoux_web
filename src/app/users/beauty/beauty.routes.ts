@@ -10,6 +10,7 @@ export const beautyRoutes: Routes = [
     children: [
         {
               path: 'detail',
+              // component: BeautyDetailComponent,
               loadChildren: () =>
                 import('./beauty-detail/beauty-detail.routes').then((m) => m.beautyDetailRoutes),
         },
