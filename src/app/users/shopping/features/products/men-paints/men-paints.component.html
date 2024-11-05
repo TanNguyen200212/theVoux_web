@@ -1,6 +1,27 @@
 <div class="pt-10 pb-6 lg:pt-[40px] lg:pb-2">
   <div class="container mx-auto flex flex-wrap gap-4 w-auto justify-center">
-    <div class="product-small box m-2 max-w-72">
+    <div *ngFor="let product of products">
+      <!-- <div *ngIf="product.category === 'men paints'"> -->
+      <div class="product-small box m-2">
+        <div class="box-image max-w-72">
+          <div class="image-none">
+            <img
+              src="https://lados.vn/wp-content/uploads/2024/07/f22d8f83f33a60dc68bfa136498b383f-1687830554977.jpeg"
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="box-text text-center">
+          <div class="title-wrapper">
+            <a>{{ product.name }}</a>
+          </div>
+          <div class="price-wrapper">
+            <span>{{ product.price }}đ</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="product-small box m-2 max-w-72">
       <div class="box-image max-w-72">
         <div class="image-none">
           <img
@@ -126,23 +147,6 @@
         </div>
       </div>
     </div>
-    <div class="product-small box m-2 max-w-72">
-      <div class="box-image max-w-72">
-        <div class="image-none">
-          <img
-            src="https://lados.vn/wp-content/uploads/2024/07/f22d8f83f33a60dc68bfa136498b383f-1687830554977.jpeg"
-            alt=""
-          />
-        </div>
-      </div>
-      <div class="box-text text-center">
-        <div class="title-wrapper">
-          <a href="">Quần Jean nam SMART JEANS siêu co giãn LD-4097</a>
-        </div>
-        <div class="price-wrapper">
-          <span>379.000 ₫</span>
-        </div>
-      </div>
-    </div>
+  </div> -->
   </div>
 </div>

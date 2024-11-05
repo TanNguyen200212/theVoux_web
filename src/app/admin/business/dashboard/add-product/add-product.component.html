@@ -1,1 +1,46 @@
+<form class="productsForm" [formGroup]="productsForm">
+  <div class="form-group">
+    <div class="flex flex-col space-y-4 my-5">
+      <mat-form-field>
+        <mat-label>Select</mat-label>
+        <mat-select formControlName="category">
+          <mat-option value="one">Men Shirts</mat-option>
+          <mat-option value="two">Men Pants</mat-option>
+          <mat-option value="three">Shoes</mat-option>
+          <mat-option value="four">Accessories </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <!-- <input type="file" class="form-control" name="img" /> -->
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name"  />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description"></textarea>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Price</mat-label>
+        <input matInput formControlName="price" />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="flex gap-3 justify-center">
+    <button
+      class="text-white bg-gradient-to-r from-red-500 via-red-600 to-red-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+      type="button"
+      (click)="onNoClick()"
+    >
+      Cancel
+    </button>
+    <button
+      class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+      type="submit"
 
+      (click)="onSubmitPr()"
+    >
+      Submit
+    </button>
+  </div>
+</form>
+<!-- </div> -->

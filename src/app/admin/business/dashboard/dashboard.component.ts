@@ -2,6 +2,7 @@ import { PostsService } from '../posts.service';
 import { Component, Inject, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Post } from '../post.model';
+import { Products } from '../products.model';
 import { NgForm, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
@@ -15,6 +16,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { ChangeDetectorRef } from '@angular/core';
 import { DashboardInfoComponent } from './dashboard-info/dashboard-info.component';
+import { AddProductComponent } from './add-product/add-product.component';
 @Component({
   selector: 'app-dashboard',
   standalone: true,
@@ -38,6 +40,7 @@ import { DashboardInfoComponent } from './dashboard-info/dashboard-info.componen
 })
 export default class DashboardComponent {
   loadedPosts: Post[] = [];
+  loadedProducts: Products[] = [];
   dataSource: any[] = [];
   constructor(
     private http: HttpClient,
@@ -69,16 +72,42 @@ export default class DashboardComponent {
         if (result.action == 'add') {
           this.loadedPosts.unshift(result.data);
           this.dataSource = [...this.loadedPosts];
-
         } else if (result.action == 'edit') {
-          
           const index = this.loadedPosts.findIndex(
             (p) => p.id === result.data.id
           );
           this.loadedPosts[index] = result.data;
-
         }
       }
+    });
+    //
+  }
+
+  openDialogPr(products?: Products): void {
+    const dialogRef = this.dialog.open(AddProductComponent, {
+      data: {
+        // title: this.title,
+        // content: this.content,
+        // title: post ? post.title : '',
+        // content: post ? post.content : '',
+        isEditMode: !!products,
+      },
+      height: '550px',
+      width: '400px',
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      //mo hop thoai va dki vao afterclosed tp cha
+      // if (result) {
+      //   if (result.action == 'add') {
+      //     this.loadedProducts.unshift(result.dataP);
+      //     this.dataSource = [...this.loadedProducts];
+      //   } else if (result.action == 'edit') {
+      //     const index = this.loadedProducts.findIndex(
+      //       (p) => p.id === result.data.id
+      //     );
+      //     this.loadedProducts[index] = result.dataP;
+      //   }
+      // }
     });
     //
   }

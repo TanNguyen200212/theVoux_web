@@ -1,11 +1,15 @@
 import { PostsService } from './../../posts.service';
 
-import { Component ,OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import {
+  MatDialogModule,
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+} from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Inject } from '@angular/core';
@@ -31,10 +35,10 @@ export interface DialogData {
     ReactiveFormsModule,
   ],
   templateUrl: './dashboard-info.component.html',
-  styleUrls: ['./dashboard-info.component.css']
+  styleUrls: ['./dashboard-info.component.css'],
 })
 export class DashboardInfoComponent {
-  postForm !: FormGroup;
+  postForm!: FormGroup;
   isEditMode = false;
   constructor(
     public dialogRef: MatDialogRef<DashboardInfoComponent>,
@@ -62,26 +66,24 @@ export class DashboardInfoComponent {
     });
   }
 
-  onCreatePost(postData: { title: string; content: string }) {
-    if (this.postForm.valid) {
-      console.log('Form Data:', this.postForm.value);
-      this.postsService
-        .createAndStorePost(postData.title, postData.content)
-        .pipe(take(1))
-        .subscribe((responseData) => {
-          console.log('createAndStorePost.............', responseData);
-          //const newPost: post = { id: responseData.name, title: postData.title, content: postData.content };
-          //this.dialogRef.close({ action: 'add', data: newPost });
-           //this.dialogRef.close();
-          this.dialogRef.close({ action: 'add', data: responseData });
-
-        });
-      // this.postsService.createAndStorePost(postData.title, postData.content);
-    } else {
-      console.log('Form is invalid');
-    }
-
-  }
+  // onCreatePost(postData: { title: string; content: string }) {
+  //   if (this.postForm.valid) {
+  //     console.log('Form Data:', this.postForm.value);
+  //     this.postsService
+  //       .createAndStorePost(postData.title, postData.content)
+  //       .pipe(take(1))
+  //       .subscribe((responseData) => {
+  //         console.log('createAndStorePost.............', responseData);
+  //         //const newPost: post = { id: responseData.name, title: postData.title, content: postData.content };
+  //         //this.dialogRef.close({ action: 'add', data: newPost });
+  //         //this.dialogRef.close();
+  //         this.dialogRef.close({ action: 'add', data: responseData });
+  //       });
+  //     // this.postsService.createAndStorePost(postData.title, postData.content);
+  //   } else {
+  //     console.log('Form is invalid');
+  //   }
+  // }
   onCancel() {
     this.dialogRef.close(); // Close the dialog without saving any changes
     //this.postForm.reset(); // Reset the form fields
@@ -95,11 +97,9 @@ export class DashboardInfoComponent {
           .updatePost(this.data.id, this.postForm.value)
           .pipe(take(1))
           .subscribe((responseData) => {
-
             this.dialogRef.close();
-          //this.dialogRef.close({ action: 'edit', data: responseData });
+            //this.dialogRef.close({ action: 'edit', data: responseData });
           });
-
       } else {
         // Create a new post
         this.postsService
@@ -114,5 +114,4 @@ export class DashboardInfoComponent {
       }
     }
   }
-
 }
