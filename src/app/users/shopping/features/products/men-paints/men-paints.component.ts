@@ -7,22 +7,35 @@ import { ProductsService } from 'src/app/admin/business/products.service';
 @Component({
   selector: 'app-men-paints',
   standalone: true,
-  imports: [CommonModule, RouterModule
-  ,HttpClientModule],
+  imports: [CommonModule, RouterModule, HttpClientModule],
   templateUrl: './men-paints.component.html',
-  styleUrls: ['./men-paints.component.css']
+  styleUrls: ['./men-paints.component.css'],
 })
 export class MenPaintsComponent {
-  products:Products[]=[];
-  constructor(private productsService: ProductsService){}
+  products: Products[] = [];
+  filteredProducts: Products[] = [];
+  category: string = 'two';
+
+  constructor(private productsService: ProductsService) {}
   ngOnInit(): void {
     this.fetchProducts();
   }
 
   fetchProducts() {
-    this.productsService.fetchProducts().subscribe((products: Products[]) => {
-      this.products = products;
-      console.log(this.products); // Xem dữ liệu trong console
-    });
+    this.productsService.fetchProducts().subscribe(
+      (products: Products[]) => {
+        this.products = products;
+        this.filterProductsByCategory();
+        console.log(this.filteredProducts);
+      },
+      (error) => {
+        console.error('Error fetching products:', error); // Log lỗi nếu có
+      }
+    );
+  }
+  filterProductsByCategory() {
+    this.filteredProducts = this.products.filter(
+      (product) => product.category === this.category
+    );
   }
 }

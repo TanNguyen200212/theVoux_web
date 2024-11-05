@@ -1,5 +1,6 @@
 <div class="pt-10 pb-6 lg:pt-[40px] lg:pb-2">
   <div class="container mx-auto flex flex-wrap gap-4 w-auto justify-center">
+  <div *ngFor="let product of filteredProducts" >
     <div class="product-small box m-2 max-w-72">
       <div class="box-image max-w-72">
         <div class="image-none">
@@ -11,138 +12,13 @@
       </div>
       <div class="box-text text-center">
         <div class="title-wrapper">
-          <a href="">PKTT Khẩu Trang #Y2010 02 Vol 24</a>
+          <a >{{product.name}}</a>
         </div>
         <div class="price-wrapper">
-          <span>4.000 ₫</span>
+          <span>{{product.price}} ₫</span>
         </div>
       </div>
     </div>
-    <div class="product-small box m-2 max-w-72">
-      <div class="box-image max-w-72">
-        <div class="image-none">
-          <img
-            src="https://cdn2.yame.vn/pimg/pktt-khan-y2010-m6-0021252/a94c82bc-54c9-0200-f170-001936bdbffa.jpg?w=540&h=756&c=true&ntf=false"
-            alt=""
-          />
-        </div>
-      </div>
-      <div class="box-text text-center">
-        <div class="title-wrapper">
-          <a href="">PKTT Khăn Microfiber 40x80 M6 Vol 24</a>
-        </div>
-        <div class="price-wrapper">
-          <span>77.000 ₫</span>
-        </div>
-      </div>
-    </div>
-    <div class="product-small box m-2 max-w-72">
-      <div class="box-image max-w-72">
-        <div class="image-none">
-          <img
-            src="https://cdn2.yame.vn/pimg/pktt-khau-trang-y2010-02-0023591/0fca8606-a5d3-0a00-5131-001b5fe20205.jpg?w=540&h=756&c=true&ntf=false"
-            alt=""
-          />
-        </div>
-      </div>
-      <div class="box-text text-center">
-        <div class="title-wrapper">
-          <a href="">PKTT Khẩu Trang #Y2010 02 Vol 24</a>
-        </div>
-        <div class="price-wrapper">
-          <span>4.000 ₫</span>
-        </div>
-      </div>
-    </div>
-    <div class="product-small box m-2 max-w-72">
-      <div class="box-image max-w-72">
-        <div class="image-none">
-          <img
-            src="https://cdn2.yame.vn/pimg/pktt-khan-y2010-m6-0021252/a94c82bc-54c9-0200-f170-001936bdbffa.jpg?w=540&h=756&c=true&ntf=false"
-            alt=""
-          />
-        </div>
-      </div>
-      <div class="box-text text-center">
-        <div class="title-wrapper">
-          <a href="">PKTT Khăn Microfiber 40x80 M6 Vol 24</a>
-        </div>
-        <div class="price-wrapper">
-          <span>77.000 ₫</span>
-        </div>
-      </div>
-    </div>
-    <div class="product-small box m-2 max-w-72">
-      <div class="box-image max-w-72">
-        <div class="image-none">
-          <img
-            src="https://cdn2.yame.vn/pimg/pktt-khau-trang-y2010-02-0023591/0fca8606-a5d3-0a00-5131-001b5fe20205.jpg?w=540&h=756&c=true&ntf=false"
-            alt=""
-          />
-        </div>
-      </div>
-      <div class="box-text text-center">
-        <div class="title-wrapper">
-          <a href="">PKTT Khẩu Trang #Y2010 02 Vol 24</a>
-        </div>
-        <div class="price-wrapper">
-          <span>4.000 ₫</span>
-        </div>
-      </div>
-    </div>
-    <div class="product-small box m-2 max-w-72">
-      <div class="box-image max-w-72">
-        <div class="image-none">
-          <img
-            src="https://cdn2.yame.vn/pimg/pktt-khan-y2010-m6-0021252/a94c82bc-54c9-0200-f170-001936bdbffa.jpg?w=540&h=756&c=true&ntf=false"
-            alt=""
-          />
-        </div>
-      </div>
-      <div class="box-text text-center">
-        <div class="title-wrapper">
-          <a href="">PKTT Khăn Microfiber 40x80 M6 Vol 24</a>
-        </div>
-        <div class="price-wrapper">
-          <span>77.000 ₫</span>
-        </div>
-      </div>
-    </div>
-    <div class="product-small box m-2 max-w-72">
-      <div class="box-image max-w-72">
-        <div class="image-none">
-          <img
-            src="https://cdn2.yame.vn/pimg/pktt-khau-trang-y2010-02-0023591/0fca8606-a5d3-0a00-5131-001b5fe20205.jpg?w=540&h=756&c=true&ntf=false"
-            alt=""
-          />
-        </div>
-      </div>
-      <div class="box-text text-center">
-        <div class="title-wrapper">
-          <a href="">PKTT Khẩu Trang #Y2010 02 Vol 24</a>
-        </div>
-        <div class="price-wrapper">
-          <span>4.000 ₫</span>
-        </div>
-      </div>
-    </div>
-    <div class="product-small box m-2 max-w-72">
-      <div class="box-image max-w-72">
-        <div class="image-none">
-          <img
-            src="https://cdn2.yame.vn/pimg/pktt-khau-trang-y2010-02-0023591/0fca8606-a5d3-0a00-5131-001b5fe20205.jpg?w=540&h=756&c=true&ntf=false"
-            alt=""
-          />
-        </div>
-      </div>
-      <div class="box-text text-center">
-        <div class="title-wrapper">
-          <a href="">PKTT Khẩu Trang #Y2010 02 Vol 24</a>
-        </div>
-        <div class="price-wrapper">
-          <span>4.000 ₫</span>
-        </div>
-      </div>
-    </div>
+  </div>
   </div>
 </div>
