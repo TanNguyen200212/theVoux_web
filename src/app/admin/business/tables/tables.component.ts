@@ -33,7 +33,7 @@ export default class TablesComponent {
   error = null;
   title: string = '';
   content: string = '';
-  displayedColumns: string[] = ['title', 'content', 'actions'];
+  displayedColumns: string[] = ['imageUrl','title', 'content', 'actions'];
   dataSource: any[] = [];
   isFetching: boolean = false;
   loadedPosts: Post[] = [];
