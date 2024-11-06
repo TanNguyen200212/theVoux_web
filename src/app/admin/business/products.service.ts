@@ -13,15 +13,15 @@ export class ProductsService {
 
   constructor( private http: HttpClient) { }
 
-  createAndStoreProducts(category: string,  name:string, description:string, price:string): Observable<any> {
-    const productsData: Products = { category: category,  name : name, description: description, price: price };
+  createAndStoreProducts(category: string, imageUrl:string, name:string, description:string, price:string): Observable<any> {
+    const productsData: Products = { category: category,imageUrl: imageUrl,  name : name, description: description, price: price };
     console.log(productsData);
     return this.http.post<{ name: string }>(
       'https://httpclient-a4bf8-default-rtdb.firebaseio.com/products.json',
       productsData
     ).pipe(
       map(responseData => {
-        const newProducts: Products = { id:responseData.name, category,name,description,price };
+        const newProducts: Products = { id:responseData.name, category,imageUrl ,name,description,price };
         this.productsSubject.next([...this.productsSubject.value, newProducts]); // Add new post to the current list
         return responseData;
       })
@@ -56,7 +56,7 @@ fetchProducts() {
     private firebaseUrl =
     'https://httpclient-a4bf8-default-rtdb.firebaseio.com/products';
 
-    updateProducts(productsId: string, productsData: { category: string, name: string, description: string , price: string   }): Observable<any> {
+    updateProducts(productsId: string, productsData: { category: string,imageUrl:string, name: string, description: string , price: string   }): Observable<any> {
       return this.http.put<Products>(`https://httpclient-a4bf8-default-rtdb.firebaseio.com/products/${productsId}.json`, productsData)
         .pipe(
           map(responseData => {

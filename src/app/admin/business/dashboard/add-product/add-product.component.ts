@@ -18,7 +18,7 @@ export interface DialogData {
   name: string;
   price: string;
   category: string;
-  // image: string;
+  imageUrl: string;
   description: string;
   id: string;
   isEditMode: boolean;
@@ -37,7 +37,6 @@ export interface DialogData {
   styleUrls: ['./add-product.component.css'],
 })
 export class AddProductComponent {
-
   productsForm!: FormGroup;
   isEditMode = false;
   constructor(
@@ -49,7 +48,7 @@ export class AddProductComponent {
     this.isEditMode = data.isEditMode;
     this.productsForm = this.fb.group({
       category: [data.category, Validators.required],
-      // image: [data.image, Validators.required],
+      imageUrl: [data.imageUrl, Validators.required], //,Validators.pattern('https?://.+')
       name: [data.name, Validators.required],
       description: [data.description, Validators.required],
       price: [data.price, Validators.required],
@@ -65,7 +64,7 @@ export class AddProductComponent {
     }
     this.productsForm = new FormGroup({
       category: new FormControl('', Validators.required),
-      // image: new FormControl('', Validators.required),
+      imageUrl: new FormControl('', Validators.required),
       name: new FormControl('', Validators.required),
       decription: new FormControl('', Validators.required),
       price: new FormControl('', Validators.required),
@@ -89,7 +88,7 @@ export class AddProductComponent {
         this.productsService
           .createAndStoreProducts(
             this.productsForm.value.category,
-            // this.productsForm.value.image,
+            this.productsForm.value.imageUrl,
             this.productsForm.value.name,
             this.productsForm.value.description,
             this.productsForm.value.price

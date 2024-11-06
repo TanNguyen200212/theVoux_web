@@ -58,7 +58,7 @@ export default class DashboardComponent {
         // content: post ? post.content : '',
         isEditMode: !!post,
       },
-      height: '300px',
+      height: '400px',
       width: '500px',
     });
 
@@ -92,7 +92,7 @@ export default class DashboardComponent {
         // content: post ? post.content : '',
         isEditMode: !!products,
       },
-      height: '550px',
+      height: '600px',
       width: '400px',
     });
     dialogRef.afterClosed().subscribe((result) => {

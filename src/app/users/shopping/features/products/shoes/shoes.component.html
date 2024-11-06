@@ -4,18 +4,15 @@
     <div class="product-small box m-2 max-w-72">
       <div class="box-image max-w-72">
         <div class="image-none">
-          <img
-            src="https://cdn2.yame.vn/pimg/giay-casual-phu-kien-mien-gio-cat-24-0022859/e952e13b-c20d-0e00-22de-001af1e68226.jpg?w=540&h=756&c=true&ntf=false"
-            alt=""
-          />
+          <img [src]="product.imageUrl" alt="{{ product.name }}" class="w-full h-auto" />
         </div>
       </div>
-      <div class="box-text text-center">
-        <div class="title-wrapper">
+      <div class="flex flex-row  justify-between max-w-72">
+        <div class="flex flex-wrap title-wrapper">
           <a >{{product.name}}</a>
         </div>
-        <div class="price-wrapper">
-          <span>{{product.price}} ₫</span>
+        <div class="price-wrapper text-violet-800 ml-5">
+          <span>{{product.price}}₫</span>
         </div>
       </div>
     </div>

@@ -13,11 +13,11 @@
           *ngFor="let post of posts"
           class="max-w-sm rounded overflow-hidden shadow-lg bg-white p-4 mb-4"
         >
-          <img
-            class="w-full h-64 object-cover"
-            src="https://ftthevoux.wpenginepowered.com/food-demo/wp-content/uploads/sites/2/2016/01/06-600x650.jpg"
-            alt="Card Image"
-          />
+        <img
+        [src]="post.imageUrl"
+        alt="{{ post.title }}"
+        class="w-full h-auto"
+      />
           <div class="px-6 py-4">
             <h2 class="font-bold text-lg text-orange-500 mb-2">
               {{ post.title }}

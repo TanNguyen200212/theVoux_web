@@ -14,15 +14,15 @@ export class PostsService {
 
   constructor(private http: HttpClient) {}
 
-  createAndStorePost(title: string, content: string): Observable<any> {
-    const postData: Post = { title: title, content: content };
+  createAndStorePost(imageUrl:string,title: string, content: string): Observable<any> {
+    const postData: Post = { imageUrl: imageUrl,title: title, content: content };
     console.log(postData);
     return this.http.post<{ name: string }>(
       'https://httpclient-a4bf8-default-rtdb.firebaseio.com/posts.json',
       postData
     ).pipe(
       map(responseData => {
-        const newPost: Post = { id: responseData.name, title, content };
+        const newPost: Post = { id: responseData.name,imageUrl, title, content };
         this.postsSubject.next([...this.postsSubject.value, newPost]); // Add new post to the current list
         return responseData;
       })

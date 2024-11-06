@@ -16,6 +16,7 @@ import { Inject } from '@angular/core';
 import { take } from 'rxjs';
 
 export interface DialogData {
+  imageUrl:string;
   title: string;
   content: string;
   isEditMode: boolean;
@@ -48,8 +49,10 @@ export class DashboardInfoComponent {
   ) {
     this.isEditMode = data.isEditMode;
     this.postForm = this.fb.group({
+      imageUrl: [data.imageUrl, Validators.required],
       title: [data.title, Validators.required],
       content: [data.content, Validators.required],
+
     });
   }
 
@@ -59,8 +62,10 @@ export class DashboardInfoComponent {
       this.postForm.patchValue(this.data);
     }
     this.postForm = new FormGroup({
+      imageUrl: new FormControl('', Validators.required),
       title: new FormControl('', Validators.required),
       content: new FormControl('', Validators.required),
+
 
       // fetchManual: new FormControl('', Validators.required),
     });
@@ -104,6 +109,7 @@ export class DashboardInfoComponent {
         // Create a new post
         this.postsService
           .createAndStorePost(
+            this.postForm.value.imageUrl,
             this.postForm.value.title,
             this.postForm.value.content
           )

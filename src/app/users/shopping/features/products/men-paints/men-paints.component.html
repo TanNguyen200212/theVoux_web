@@ -6,17 +6,18 @@
         <div class="box-image max-w-72">
           <div class="image-none">
             <img
-              src="https://lados.vn/wp-content/uploads/2024/07/f22d8f83f33a60dc68bfa136498b383f-1687830554977.jpeg"
-              alt=""
+              [src]="product.imageUrl"
+              alt="{{ product.name }}"
+              class="w-full h-auto"
             />
           </div>
         </div>
-        <div class="box-text text-center">
-          <div class="title-wrapper">
+        <div class="flex flex-row justify-between max-w-72">
+          <div class="flex flex-wrap title-wrapper">
             <a>{{ product.name }}</a>
           </div>
-          <div class="price-wrapper">
-            <span>{{ product.price }} ₫</span>
+          <div class="price-wrapper text-violet-800 ml-5">
+            <span>{{ product.price }}₫</span>
           </div>
         </div>
       </div>
