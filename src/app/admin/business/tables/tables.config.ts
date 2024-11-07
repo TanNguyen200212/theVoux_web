@@ -1,5 +1,4 @@
-
-import { CommonModule } from '@angular/common';
+import { tablesRoutes } from './tables.routes';
 import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import {
   BrowserAnimationsModule,
@@ -10,19 +9,24 @@ import {
   withComponentInputBinding,
   withRouterConfig,
 } from '@angular/router';
-import { RouterModule } from '@angular/router';
-import { menPaintsRoutes } from './men-paints.routes';
-let modules = [
- CommonModule,
- RouterModule.forRoot(menPaintsRoutes),
 
+import { HttpClientModule } from '@angular/common/http';
+
+import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
+
+let modules = [
+  HttpClientModule,
+  BrowserAnimationsModule,
+  BrowserModule,
+  RouterModule.forRoot(tablesRoutes),
 
 ];
 
-export const menPaintsConfig: ApplicationConfig = {
+export const tablesConfig: ApplicationConfig = {
   providers: [
     provideRouter(
-      menPaintsRoutes,
+      tablesRoutes,
       withComponentInputBinding(),
       withRouterConfig({ paramsInheritanceStrategy: 'always' })
     ),

@@ -83,7 +83,7 @@ export const adminRoutes: Routes = [
                 },
                 {
                   path: 'tables',
-                  component :TablesComponent,
+                  loadChildren: () => import('./business/tables/tables.routes').then(m => m.tablesRoutes)
                 }
            ],
         }

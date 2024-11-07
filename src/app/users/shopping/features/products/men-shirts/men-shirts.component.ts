@@ -14,7 +14,7 @@ import { ProductsService } from 'src/app/admin/business/products.service';
 export class MenShirtsComponent {
   products: Products[] = [];
   filteredProducts: Products[] = [];
-  category: string = 'one';
+  category: string = 'Men Shirts';
   constructor(private productsService: ProductsService) {}
   ngOnInit(): void {
     this.fetchProducts();

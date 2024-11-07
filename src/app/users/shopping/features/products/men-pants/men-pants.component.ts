@@ -1,20 +1,20 @@
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Products } from 'src/app/admin/business/products.model';
 import { ProductsService } from 'src/app/admin/business/products.service';
 @Component({
-  selector: 'app-men-paints',
+  selector: 'app-men-pants',
   standalone: true,
   imports: [CommonModule, RouterModule, HttpClientModule],
-  templateUrl: './men-paints.component.html',
-  styleUrls: ['./men-paints.component.css'],
+  templateUrl: './men-pants.component.html',
+  styleUrls: ['./men-pants.component.css']
 })
-export class MenPaintsComponent {
+export class MenPantsComponent {
   products: Products[] = [];
   filteredProducts: Products[] = [];
-  category: string = 'two';
+  category: string = 'Men Pants';
 
   constructor(private productsService: ProductsService) {}
   ngOnInit(): void {

@@ -53,6 +53,11 @@ fetchProducts() {
     );
 }
 
+deleteProducts(productsId: string) {
+  return this.http.delete(
+    'https://httpclient-a4bf8-default-rtdb.firebaseio.com/products.json'
+  );
+}
     private firebaseUrl =
     'https://httpclient-a4bf8-default-rtdb.firebaseio.com/products';
 
@@ -68,6 +73,10 @@ fetchProducts() {
           })
         );
 
+    }
+
+    deleteProduct(productsId: string): Observable<void> {
+      return this.http.delete<void>(`${this.firebaseUrl}/${productsId}.json`);
     }
 }
 

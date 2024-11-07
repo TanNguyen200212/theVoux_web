@@ -28,11 +28,9 @@ export const productsRoutes: Routes = [
           ),
       },
       {
-        path: 'men-paints',
+        path: 'men-pants',
         loadChildren: () =>
-          import('./men-paints/men-paints.routes').then(
-            (m) => m.menPaintsRoutes
-          ),
+          import('./men-pants/men-pants.routes').then((m) => m.menPantsRoutes),
       },
       {
         path: 'shoes',
