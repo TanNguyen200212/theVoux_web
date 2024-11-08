@@ -1,1 +1,149 @@
-<p>product-detail works!</p>
+<div class="">
+  <div *ngIf="let product"></div>
+  <div class="flex flex-row justify-center px-16 m-12">
+    <div class="col-md-6 w-1/2 p-4">
+      <img [src]="product?.imageUrl" alt="{{ product?.name }}" />
+    </div>
+    <div class="col-md-6 w-1/2 p-4 items-center">
+      <div class="row">
+        <!-- <div class='col-md-3'>Name:</div> -->
+        <div class="col-md-6 text-xl font-sans font-bold mt-4">
+          {{ product?.name }}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 text-red-600 text-lg font-bold mt-4">
+          {{ product?.price }}₫
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-3 flex mt-4">
+          <div class="flex items-center">
+            <svg
+              class="w-4 h-4 text-yellow-300 ms-1"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 22 20"
+            >
+              <path
+                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"
+              />
+            </svg>
+            <svg
+              class="w-4 h-4 text-yellow-300 ms-1"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 22 20"
+            >
+              <path
+                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"
+              />
+            </svg>
+            <svg
+              class="w-4 h-4 text-yellow-300 ms-1"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 22 20"
+            >
+              <path
+                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"
+              />
+            </svg>
+            <svg
+              class="w-4 h-4 text-yellow-300 ms-1"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 22 20"
+            >
+              <path
+                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"
+              />
+            </svg>
+            <svg
+              class="w-4 h-4 ms-1 text-gray-300 dark:text-gray-500"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 22 20"
+            >
+              <path
+                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3 text-lg font-sans font-semibold my-4 mr-4">
+          Description
+        </div>
+        <div class="col-md-6 font-light">{{ product?.description }}</div>
+      </div>
+      <div class="row"></div>
+      <div class="row">
+        <!-- <div class="col-md-3">Số lượng:</div> -->
+        <div class="col-md-6 my-4 mr-4">
+          <!-- <div class="flex items-center space-x-2">
+            <button
+              (click)="handleQuantity('min')"
+              class="px-3 py-1 bg-gray-300 text-gray-700 rounded hover:bg-gray-400 focus:outline-none"
+            >
+              -
+            </button>
+            <input
+              type="text"
+              value="1"
+              class="w-12 text-center border border-gray-300 rounded focus:outline-none"
+            />
+            <button
+              (click)="handleQuantity('plus')"
+              class="px-3 py-1 bg-gray-300 text-gray-700 rounded hover:bg-gray-400 focus:outline-none"
+            >
+              +
+            </button>
+          </div> -->
+          <div class="quantity-group flex items-center space-x-2">
+            <button (click)="handleQuantity('min')" class="px-3 py-1 bg-gray-300 text-gray-700 rounded hover:bg-gray-400 ">-</button>
+
+            <input
+              type="text"
+              value="{{productQuantity}}"
+              class="w-12 text-center border border-gray-300 rounded focus:outline-none"
+            />
+            <button (click)="handleQuantity('plus')" class="px-3 py-1 bg-gray-300 text-gray-700 rounded hover:bg-gray-400 ">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="flex row gap-6">
+        <button
+          class="bg-sky-950 text-sky-400 border border-sky-400 border-b-4 font-medium overflow-hidden relative px-4 py-2 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group"
+        >
+          <span
+            class="bg-sky-400 shadow-sky-400 absolute -top-[150%] left-0 inline-flex w-80 h-[5px] rounded-md opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)]"
+          ></span>
+          Add to Card
+        </button>
+        <button
+          class="bg-orange-950 text-orange-400 border border-orange-400 border-b-4 font-medium overflow-hidden relative px-4 py-2 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group"
+        >
+          <span
+            class="bg-orange-400 shadow-orange-400 absolute -top-[150%] left-0 inline-flex w-80 h-[5px] rounded-md opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)]"
+          ></span>
+          Buy Now
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="px-16 mt-12">
+    <h2  class="flex justify-center ">CÓ THỂ BẠN QUAN TÂM</h2>
+    <div class="related-products grid grid-cols-2 gap-4">
+
+    </div>
+  </div>
+</div>

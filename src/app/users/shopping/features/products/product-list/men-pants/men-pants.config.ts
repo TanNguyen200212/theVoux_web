@@ -10,7 +10,7 @@ import {
   withRouterConfig,
 } from '@angular/router';
 import { RouterModule } from '@angular/router';
-import { menPantsRoutes } from '../men-pants/men-pants.routes';
+import { menPantsRoutes } from './men-pants.routes';
 let modules = [CommonModule, RouterModule.forRoot(menPantsRoutes)];
 
 export const menPantsConfig: ApplicationConfig = {

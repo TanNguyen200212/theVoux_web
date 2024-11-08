@@ -11,7 +11,9 @@ export class ProductsService {
   private productsSubject = new BehaviorSubject<Products[]>([]);
   products$ = this.productsSubject.asObservable();
 
-  constructor( private http: HttpClient) { }
+  constructor( private http: HttpClient,
+
+  ) { }
 
   createAndStoreProducts(category: string, imageUrl:string, name:string, description:string, price:string): Observable<any> {
     const productsData: Products = { category: category,imageUrl: imageUrl,  name : name, description: description, price: price };
@@ -77,6 +79,11 @@ deleteProducts(productsId: string) {
 
     deleteProduct(productsId: string): Observable<void> {
       return this.http.delete<void>(`${this.firebaseUrl}/${productsId}.json`);
+    }
+
+
+    getProductById(id: string): Observable<Products> {
+      return this.http.get<Products>(`${this.firebaseUrl}/${id}.json`);
     }
 }
 
