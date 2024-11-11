@@ -89,39 +89,30 @@
       <div class="row">
         <!-- <div class="col-md-3">Số lượng:</div> -->
         <div class="col-md-6 my-4 mr-4">
-          <!-- <div class="flex items-center space-x-2">
+          <div class="quantity-group flex items-center space-x-2">
             <button
               (click)="handleQuantity('min')"
-              class="px-3 py-1 bg-gray-300 text-gray-700 rounded hover:bg-gray-400 focus:outline-none"
+              class="px-3 py-1 bg-gray-300 text-gray-700 rounded hover:bg-gray-400"
             >
               -
             </button>
+
             <input
               type="text"
-              value="1"
+              value="{{ productQuantity }}"
               class="w-12 text-center border border-gray-300 rounded focus:outline-none"
             />
             <button
               (click)="handleQuantity('plus')"
-              class="px-3 py-1 bg-gray-300 text-gray-700 rounded hover:bg-gray-400 focus:outline-none"
+              class="px-3 py-1 bg-gray-300 text-gray-700 rounded hover:bg-gray-400"
             >
               +
             </button>
-          </div> -->
-          <div class="quantity-group flex items-center space-x-2">
-            <button (click)="handleQuantity('min')" class="px-3 py-1 bg-gray-300 text-gray-700 rounded hover:bg-gray-400 ">-</button>
-
-            <input
-              type="text"
-              value="{{productQuantity}}"
-              class="w-12 text-center border border-gray-300 rounded focus:outline-none"
-            />
-            <button (click)="handleQuantity('plus')" class="px-3 py-1 bg-gray-300 text-gray-700 rounded hover:bg-gray-400 ">+</button>
           </div>
         </div>
       </div>
       <div class="flex row gap-6">
-        <button
+        <button (click)="addToCart()"
           class="bg-sky-950 text-sky-400 border border-sky-400 border-b-4 font-medium overflow-hidden relative px-4 py-2 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group"
         >
           <span
@@ -141,9 +132,18 @@
     </div>
   </div>
   <div class="px-16 mt-12">
-    <h2  class="flex justify-center ">CÓ THỂ BẠN QUAN TÂM</h2>
-    <div class="related-products grid grid-cols-2 gap-4">
+    <h2 class="flex justify-center">CÓ THỂ BẠN QUAN TÂM</h2>
+    <div class=" grid grid-cols-2 gap-4">
+      <div  *ngFor="let product of filteredProducts">
+        <!-- <div class="related-product"> -->
+          <h2>fdfdrfedf</h2>
+          <h4>{{ product.name }}</h4>
+          <span>{{ product.price }}</span>
+        <!-- </div> -->
+      </div>
 
+
+      <h2></h2>
     </div>
   </div>
 </div>

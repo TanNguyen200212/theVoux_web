@@ -1,21 +1,32 @@
 <div class="pt-10 pb-6 lg:pt-[40px] lg:pb-2">
   <div class="container mx-auto flex flex-wrap gap-4 w-auto justify-center">
     <div *ngFor="let product of filteredProducts">
-    <div class="product-small box m-2 max-w-72">
-      <div class="box-image max-w-72">
-        <div class="image-none">
-          <img [src]="product.imageUrl" alt="{{ product.name }}" class="w-full h-auto" />
+      <div class="product-small box m-2 max-w-72">
+        <div class="box-image max-w-72">
+          <div class="image-none">
+            <img
+              [src]="product.imageUrl"
+              alt="{{ product.name }}"
+              class="w-full h-auto"
+            />
+          </div>
+        </div>
+        <div class="flex flex-row justify-between max-w-72">
+          <div class="flex flex-wrap title-wrapper">
+            <a>{{ product.name }}</a>
+          </div>
+          <div class="price-wrapper text-violet-800 ml-5">
+            <span>{{ product.price }}₫</span>
+          </div>
         </div>
       </div>
-      <div class="flex flex-row  justify-between max-w-72">
-        <div class="flex flex-wrap title-wrapper">
-          <a >{{product.name}}</a>
-        </div>
-        <div class="price-wrapper text-violet-800 ml-5">
-          <span>{{product.price}}₫</span>
-        </div>
+      <div class="px-6 pt-4 pb-2 text-center">
+        <button
+          class="cursor-pointer text-white font-bold relative text-[14px] w-[7em] h-[2em] text-center bg-gradient-to-r from-violet-500 from-10% via-sky-500 via-30% to-pink-500 to-90% bg-[length:400%] rounded-[30px] z-10 hover:animate-gradient-xy hover:bg-[length:100%] before:content-[''] before:absolute before:-top-[5px] before:-bottom-[5px] before:-left-[5px] before:-right-[5px] before:bg-gradient-to-r before:from-violet-500 before:from-10% before:via-sky-500 before:via-30% before:to-pink-500 before:bg-[length:400%] before:-z-10 before:rounded-[35px] before:hover:blur-xl before:transition-all before:ease-in-out before:duration-[1s] before:hover:bg-[length:10%] active:bg-violet-700 focus:ring-violet-700"
+          routerLink="/users/shopping/products/product-list/details/{{ product.id }}"      >
+          View Details
+        </button>
       </div>
     </div>
-  </div>
   </div>
 </div>

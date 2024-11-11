@@ -16,10 +16,13 @@ export const productsRoutes: Routes = [
             (m) => m.productListRoutes
           ),
       },
-     
+
       {
-        path: 'details/:id',
-        component: ProductDetailComponent,
+        path: 'product-list/details/:id',
+        loadChildren: () =>
+          import('./product-detail/product-detail.routes').then(
+            (m) => m.productDetailsRoutes
+          ),
       },
     ],
   },

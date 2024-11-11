@@ -29,6 +29,13 @@ export const productListRoutes: Routes = [
             (m) => m.accessoriesRoutes
           ),
       },
+      // {
+      //     path: 'details/:id',
+      //     loadChildren: () =>
+      //       import('../product-detail/product-detail.routes').then(
+      //         (m) => m.productDetailsRoutes
+      //       ),
+      //     }
     ],
   },
 ];
