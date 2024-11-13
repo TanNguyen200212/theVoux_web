@@ -1,41 +1,56 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-
-interface Product {
-  id: number;
-  name: string;
-  price: number;
-  quantity: number;
-}
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
-  private cartItems: any[] = [];
-  private cartSubject: BehaviorSubject<any[]> = new BehaviorSubject(
-    this.cartItems
-  );
-
+  private storageKey = 'cartItems';
+  private cartSubject = new BehaviorSubject<any[]>(this.getCartItems());
+  cartItems$ = this.cartSubject.asObservable();
   constructor() {}
 
-  getCartItems() {
-    return this.cartSubject.asObservable();
-  }
-  addToCart(product: any) {
-    this.cartItems.push(product);
-    this.cartSubject.next(this.cartItems); //update
+  getCartItems(): any[] {
+    const items = localStorage.getItem(this.storageKey);
+    return items ? JSON.parse(items) : [];
   }
 
-  removeFromCart(productId: number) {
-    this.cartItems = this.cartItems.filter((item) => item.id !== productId);
-    this.cartSubject.next(this.cartItems); //update
+  setCartItems(items: any[]): void {
+    localStorage.setItem(this.storageKey, JSON.stringify(items));
   }
 
-  getTotalItems() {
-    return this.cartItems.length;
+  addToCart(item: any): void {
+    const items = this.getCartItems() ;
+    const existItem = items.find((cartItem) => cartItem.id === item.id);
+    if (existItem) {
+      existItem.quantity = (existItem.quantity || 0) + 1;
+    } else {
+     // item.quantity = 1;
+     const newItem = { ...item, quantity: 1 };
+      items.push(newItem);
+
+    }
+     this.setCartItems(items);
+     this.cartSubject.next(items);
   }
 
-  get totalPrice() {
-    return this.cartItems.reduce((total, item) => total + item.price, 0);
+  removeFromCart(index: number): void {
+    const items = this.getCartItems();
+    items.splice(index, 1);
+    this.setCartItems(items);
+  }
+
+  clearCart(): void {
+    localStorage.removeItem(this.storageKey);
+    this.cartSubject.next([]);
+  }
+
+  updateQuantity(index: number, quantity: number): void {
+    const items = this.getCartItems();
+    if (items[index]) {
+      items[index].quantity = quantity;
+      this.setCartItems(items);
+
+      this.cartSubject.next(items);
+    }
   }
 }

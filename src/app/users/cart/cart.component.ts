@@ -12,27 +12,54 @@ import { CartService } from './cart.service';
 })
 export class CartComponent implements OnInit {
   cartItems: any[] = [];
-  productQuantity: number = 1;
   constructor (private cartService: CartService) {}
 
   ngOnInit() {
-    this.cartService.getCartItems().subscribe((items) => {
+    this.cartService.cartItems$.subscribe((items) => {
       this.cartItems = items;
     });
+    //this.loadCart();
+   }
+
+  loadCart(): void {
+   this.cartItems = this.cartService.getCartItems();
   }
 
-  removeItem(productId: number) {
-    this.cartService.removeFromCart(productId);
+  addItemTocart(item:any){
+    this.cartService.addToCart(item);
+   this.loadCart();
+  }
+  removeItemFromCart(index: number): void {
+    this.cartService.removeFromCart(index);
+   this.loadCart();
   }
 
-  get totalAmount(){
+  clearCart(): void {
+    this.cartService.clearCart();
+   this.loadCart();
+  }
+
+
+
+  get totalPrice(){
     return this.cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
   }
-  handleQuantity(val: string) {
-    if (this.productQuantity < 20 && val === 'plus') {
-      this.productQuantity += 1;
-    } else if (this.productQuantity > 1 && val === 'min') {
-      this.productQuantity -= 1;
+
+
+  plusQuantity(index:number):void{
+    const item =this.cartItems[index];
+    if(item){
+      item.quantity= (item.quantity || 1) + 1;
+      this.cartService.updateQuantity(index, item.quantity);
+      this.loadCart();
+    }
+  }
+  minQuantity(index:number):void{
+    const item =this.cartItems[index];
+    if(item && item.quantity > 1){
+      item.quantity  -= 1;
+      this.cartService.updateQuantity(index, item.quantity);
+      this.loadCart();
     }
   }
 }

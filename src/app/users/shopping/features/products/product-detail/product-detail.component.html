@@ -112,7 +112,8 @@
         </div>
       </div>
       <div class="flex row gap-6">
-        <button (click)="addToCart()"
+        <button
+          (click)="addToCart()"
           class="bg-sky-950 text-sky-400 border border-sky-400 border-b-4 font-medium overflow-hidden relative px-4 py-2 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group"
         >
           <span
@@ -133,17 +134,10 @@
   </div>
   <div class="px-16 mt-12">
     <h2 class="flex justify-center">CÓ THỂ BẠN QUAN TÂM</h2>
-    <div class=" grid grid-cols-2 gap-4">
-      <div  *ngFor="let product of filteredProducts">
-        <!-- <div class="related-product"> -->
-          <h2>fdfdrfedf</h2>
-          <h4>{{ product.name }}</h4>
-          <span>{{ product.price }}</span>
-        <!-- </div> -->
-      </div>
+    <div class="">
+      <app-related-product ></app-related-product>
 
 
-      <h2></h2>
     </div>
   </div>
 </div>

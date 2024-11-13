@@ -85,5 +85,6 @@ deleteProducts(productsId: string) {
     getProductById(id: string): Observable<Products> {
       return this.http.get<Products>(`${this.firebaseUrl}/${id}.json`);
     }
+ 
 }
 

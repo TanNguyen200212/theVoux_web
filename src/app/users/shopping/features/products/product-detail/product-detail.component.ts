@@ -5,10 +5,11 @@ import { ProductsService } from 'src/app/admin/business/products.service';
 import { Products } from 'src/app/admin/business/products.model';
 import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
+import { RelatedProductComponent } from '../related-product/related-product.component';
 @Component({
   selector: 'app-product-detail',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RelatedProductComponent],
   templateUrl: './product-detail.component.html',
   styleUrls: ['./product-detail.component.css'],
 })
@@ -17,7 +18,7 @@ export class ProductDetailComponent {
   products: Products[] = [];
   filteredProducts: Products[] = [];
   category: string = 'Men Shirts';
-
+  cartItems: any[] = [];
   productQuantity: number = 1;
   productId: string = '';
   product$!: Observable<any>;
@@ -64,10 +65,15 @@ export class ProductDetailComponent {
   }
 
   addToCart(){
+
     if(this.product){
-      this.cartService.addToCart(this.product);
-      alert('sản phẩm da được thêm vào giỏ hàng');
+      const productToAdd = { ...this.product, quantity: this.productQuantity };
+      //this.cartItems.push(productToAdd);
+      this.cartService.addToCart(productToAdd);
+    alert('sản phẩm đã được thêm vào giỏ hàng');
     }
+
   }
+
 
 }
