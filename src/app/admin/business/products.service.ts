@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, map, Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable, catchError } from 'rxjs';
 import { Products } from './products.model';
 @Injectable({
   providedIn: 'root'
@@ -76,15 +76,21 @@ deleteProducts(productsId: string) {
         );
 
     }
-
+    
     deleteProduct(productsId: string): Observable<void> {
-      return this.http.delete<void>(`${this.firebaseUrl}/${productsId}.json`);
+      return this.http.delete<void>(`${this.firebaseUrl}/${productsId}.json`).pipe(
+        catchError((error) => {
+          console.error('Error deleting product:', error);
+          throw error;
+        })
+      );
+
     }
 
 
     getProductById(id: string): Observable<Products> {
       return this.http.get<Products>(`${this.firebaseUrl}/${id}.json`);
     }
- 
+
 }
 

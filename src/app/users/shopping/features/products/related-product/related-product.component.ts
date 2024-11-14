@@ -2,14 +2,14 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { Products } from 'src/app/admin/business/products.model';
 import { ProductsService } from 'src/app/admin/business/products.service';
+import { Products } from 'src/app/admin/business/products.model';
 @Component({
   selector: 'app-related-product',
   standalone: true,
   imports: [CommonModule, RouterModule, HttpClientModule],
   templateUrl: './related-product.component.html',
-  styleUrls: ['./related-product.component.css'],
+  styleUrls: ['./related-product.component.css']
 })
 export class RelatedProductComponent {
   products: Products[] = [];

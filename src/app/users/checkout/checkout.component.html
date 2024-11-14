@@ -1,0 +1,78 @@
+<section class="bg-white py-8 antialiased dark:bg-gray-900 md:py-16">
+  <div class="mx-auto max-w-screen-xl px-4 2xl:px-0 flex justify-center gap-24">
+  <div class="flex flex-col w-1/2">
+    <h2 class="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">
+      Billing details
+    </h2>
+
+    <div class="flex flex-col">
+
+    <mat-form-field >
+      <mat-label >Name</mat-label>
+      <input matInput>
+    </mat-form-field>
+    <mat-form-field >
+      <mat-label >Phone</mat-label>
+      <input matInput>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+             placeholder="pat@gmail.com">
+      <mat-hint>Errors appear instantly!</mat-hint>
+      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="emailFormControl.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field >
+      <mat-label >Address</mat-label>
+      <input matInput>
+    </mat-form-field>
+    </div>
+    <h2 class="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">
+      Payment method
+    </h2>
+    <mat-radio-group aria-label="Select an option" class="flex flex-col">
+      <mat-radio-button value="1">Bank transfer</mat-radio-button>
+      <mat-radio-button value="2">
+        Pay cash upon delivery</mat-radio-button>
+    </mat-radio-group>
+
+    </div>
+    <div>
+      <h2 class="text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">
+        YOUR ORDER
+      </h2>
+      <div class="mt-6 w-full space-y-6 sm:mt-8 lg:mt-0 lg:max-w-xs xl:max-w-md">
+        <div class="flow-root">
+          <div class="-my-3 divide-y divide-gray-200 dark:divide-gray-800">
+            <dl class="flex items-center justify-between gap-4 py-3">
+              <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Subtotal</dt>
+              <dd class="text-base font-medium text-gray-900 dark:text-white"> </dd>
+            </dl>
+
+            <dl class="flex items-center justify-between gap-4 py-3">
+              <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Shipping</dt>
+              <dd class="text-base font-medium text-green-500">free</dd>
+            </dl>
+
+
+            <dl class="flex items-center justify-between gap-4 py-3">
+              <dt class="text-base font-bold text-gray-900 dark:text-white">Total</dt>
+              <dd class="text-base font-bold text-gray-900 dark:text-white">$8,392.00</dd>
+            </dl>
+          </div>
+        </div>
+        </div>
+      <button
+        class="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold py-4 px-10 rounded-full shadow-lg transform hover:scale-105 transition duration-300 ease-in-out m-5"
+      >
+        Place Order
+      </button>
+
+    </div>
+    </div>
+    </section>

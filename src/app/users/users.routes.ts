@@ -48,6 +48,11 @@ export const usersRoutes: Routes = [
         loadChildren: () =>
           import('./cart/cart.routes').then((m) => m.cartRoutes),
       },
+      {
+        path: 'checkout',
+        loadChildren: () =>
+          import('./checkout/checkout.routes').then((m) => m.checkOutRoutes),
+      },
     ],
   },
 ];

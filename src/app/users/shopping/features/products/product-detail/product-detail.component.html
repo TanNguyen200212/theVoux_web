@@ -87,8 +87,8 @@
       </div>
       <div class="row"></div>
       <div class="row">
-        <!-- <div class="col-md-3">Số lượng:</div> -->
-        <div class="col-md-6 my-4 mr-4">
+        <div class="col-md-3">Số lượng:</div>
+         <div class="col-md-6 my-4 mr-4">
           <div class="quantity-group flex items-center space-x-2">
             <button
               (click)="handleQuantity('min')"
@@ -110,6 +110,28 @@
             </button>
           </div>
         </div>
+           <!-- <div class="col-md-6 my-4 mr-4">
+                  <div class="quantity-group flex items-center space-x-2">
+                    <button
+                      (click)="minQuantity(i)"
+                      class="px-3 py-1 bg-gray-300 text-gray-700 rounded hover:bg-gray-400"
+                    >
+                      -
+                    </button>
+
+                    <input
+                      type="text"
+                      value="{{ item.quantity || 1 }}"
+                      class="w-12 text-center border border-gray-300 rounded focus:outline-none"
+                    />
+                    <button
+                      (click)="plusQuantity(i)"
+                      class="px-3 py-1 bg-gray-300 text-gray-700 rounded hover:bg-gray-400"
+                    >
+                      +
+                    </button>
+                  </div>
+                </div> -->
       </div>
       <div class="flex row gap-6">
         <button
@@ -135,9 +157,7 @@
   <div class="px-16 mt-12">
     <h2 class="flex justify-center">CÓ THỂ BẠN QUAN TÂM</h2>
     <div class="">
-      <app-related-product ></app-related-product>
-
-
+      <app-related-product></app-related-product>
     </div>
   </div>
 </div>

@@ -113,6 +113,7 @@ products: any;
   // }
 
   onDelete(productsId: string) {
+    
     if (confirm('Bạn có chắc chắn muốn xóa ?')) {
       this.productsService.deleteProduct(productsId).subscribe(() => {
         console.log('xoá thành công');
@@ -139,7 +140,7 @@ products: any;
           });
           this.products = this.products.map((p: { id: string | undefined }) =>
             p.id === products.id ? { ...responseData } : p
-          );  
+          );
           // Refresh the table after editing
           // console.log('createAndStorePost.............', responseData);
           console.log('Editing Product ID:', products.id);

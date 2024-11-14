@@ -18,7 +18,7 @@ export class CartComponent implements OnInit {
     this.cartService.cartItems$.subscribe((items) => {
       this.cartItems = items;
     });
-    //this.loadCart();
+    this.loadCart();
    }
 
   loadCart(): void {
