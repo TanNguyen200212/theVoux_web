@@ -33,6 +33,7 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./trending-news-ad.component.css']
 })
 export class TrendingNewsAdComponent {
+  searchText: any;
   ngForm = false;
   error = null;
   title: string = '';

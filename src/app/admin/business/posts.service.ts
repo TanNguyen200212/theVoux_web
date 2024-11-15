@@ -80,7 +80,7 @@ export class PostsService {
           const updatedPosts = this.postsSubject.value.map(post =>
             post.id === postId ? { ...responseData, id: postId } : post
           );
-          this.postsSubject.next(updatedPosts); // Update the list with the updated post
+          this.postsSubject.next(updatedPosts);
           return responseData;
         })
       );

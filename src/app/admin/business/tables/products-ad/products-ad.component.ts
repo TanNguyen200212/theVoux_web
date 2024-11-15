@@ -16,6 +16,8 @@ import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { AddProductComponent } from '../../dashboard/add-product/add-product.component';
 import { ProductsService } from '../../products.service';
 import { MatTableModule } from '@angular/material/table';
+import { MatTabsModule } from '@angular/material/tabs';
+
 @Component({
   selector: 'app-products-ad',
   standalone: true,
@@ -27,8 +29,9 @@ import { MatTableModule } from '@angular/material/table';
     ReactiveFormsModule,
     MatDialogModule,
     MatTableModule,
-    HttpClientModule
-
+    HttpClientModule,
+    MatTabsModule,
+    MatSnackBarModule,
   ],
   templateUrl: './products-ad.component.html',
   styleUrls: ['./products-ad.component.css']
@@ -41,12 +44,13 @@ export class ProductsAdComponent {
   isFetching: boolean = false;
   loadedProducts: Products[] = [];
   private _snackBar = Inject(MatSnackBar);
-products: any;
+// products: any;
+p:any;
+product:any;
 
   constructor(
     private Http: HttpClient,
-  //  public dialogRef: MatDialogRef<AddProductComponent>,
-   // @Inject(MAT_DIALOG_DATA) public data: DialogData,
+
     public dialog: MatDialog,
     private productsService: ProductsService,
   //  private fb: FormBuilder,
@@ -67,18 +71,7 @@ products: any;
       width: '400px',
     });
     dialogRef.afterClosed().subscribe((result) => {
-      //mo hop thoai va dki vao afterclosed tp cha
-      // if (result) {
-      //   if (result.action == 'add') {
-      //     this.loadedProducts.unshift(result.dataP);
-      //     this.dataSource = [...this.loadedProducts];
-      //   } else if (result.action == 'edit') {
-      //     const index = this.loadedProducts.findIndex(
-      //       (p) => p.id === result.data.id
-      //     );
-      //     this.loadedProducts[index] = result.dataP;
-      //   }
-      // }
+
     });
     //
   }
@@ -100,8 +93,6 @@ products: any;
   onFetchProducts() {
     this.productsService.fetchProducts().subscribe((products) => {
       this.loadedProducts = products;
-      // this.postsService.isFetching = false;
-      // this.postsService.loadedPosts = posts;
     });
   }
 
@@ -112,42 +103,46 @@ products: any;
   //   });
   // }
 
-  onDelete(productsId: string) {
-    
+  onDelete(productId: string) {
+    if (productId){
     if (confirm('Bạn có chắc chắn muốn xóa ?')) {
-      this.productsService.deleteProduct(productsId).subscribe(() => {
+      this.productsService.deleteProduct(productId).subscribe(() => {
         console.log('xoá thành công');
         this.onFetchProducts(); // Refresh the table after deletion
       });
     }
+  } else {
+    console.log('Không có id');
   }
-
+  }
  //edit
- onEdit(products: Products): void {
+ onEdit(product: Products): void {
   const dialogRef = this.dialog.open(AddProductComponent, {
     width: '300px',
-    data: { ...products}, // Pass a copy of the post to the dialog
+    data: { ...product},
   });
 
   dialogRef.afterClosed().subscribe((result) => {
     if (result) {
       this.productsService
-        .updateProducts(products.id!, result)
+        .updateProducts(product.id!, result)
         .subscribe((responseData) => {
 
           this._snackBar.open('Post updated successfully', 'Close', {
             duration: 3000,
           });
-          this.products = this.products.map((p: { id: string | undefined }) =>
-            p.id === products.id ? { ...responseData } : p
+          this.product = this.product.map((p: { id: string | undefined }) =>
+            p.id === product.id ? { ...responseData } : p
           );
-          // Refresh the table after editing
-          // console.log('createAndStorePost.............', responseData);
-          console.log('Editing Product ID:', products.id);
+
+          console.log('createAndStoreProducts.............', responseData);
+          console.log('Editing Product ID:', product.id);
           console.log('Updated Product ID from Response:', responseData.id);
         });
+
     }
     this.onFetchProducts();
   });
 }
+
 }

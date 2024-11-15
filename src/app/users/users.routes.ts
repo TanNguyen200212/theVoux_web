@@ -39,6 +39,16 @@ export const usersRoutes: Routes = [
           import('./beauty/beauty.routes').then((m) => m.beautyRoutes),
       },
       {
+        path: 'culture',
+        loadChildren: () =>
+          import('./culture/culture.routes').then((m) => m.cultureRoutes),
+      },
+      {
+        path: 'fashion',
+        loadChildren: () =>
+          import('./fashion/fashion.routes').then((m) => m.fashionRoutes),
+      },
+      {
         path: 'shopping',
         loadChildren: () =>
           import('./shopping/shopping.routes').then((m) => m.shoppingRoutes),
@@ -53,6 +63,7 @@ export const usersRoutes: Routes = [
         loadChildren: () =>
           import('./checkout/checkout.routes').then((m) => m.checkOutRoutes),
       },
+
     ],
   },
 ];
